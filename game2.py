@@ -1,10 +1,9 @@
-qimport pygame
+import pygame
 import random
 import math
 import heapq
 import time
 import sys
-
 pygame.init()
 
 #Colors
@@ -41,7 +40,7 @@ NUM_STARS = 200
 stars = []
 
 #Water Setup
-WATER_HEIGHT = 100  # Decreased from 150
+WATER_HEIGHT = 100 
 water_level = SCREEN_HEIGHT - WATER_HEIGHT
 water_animation_offset = 0
 SCORE_DISPLAY_OFFSET = 30
@@ -70,8 +69,8 @@ class Station:
         self.x = x
         self.y = y
         self.name = name
-        self.connections = []  #List of connected stations
-        self.spheres = []  #Spheres currently at this station
+        self.connections = [] 
+        self.spheres = []
         self.operator = None  #Either '+', '-', or None
        
     def __hash__(self):
@@ -93,7 +92,6 @@ class Station:
       
         #Draw the station
         pygame.draw.circle(screen, STATION_COLOR, (self.x, self.y), STATION_RADIUS)
-      
         #Draw station name
         name_surface = small_font.render(self.name, True, WHITE)
         name_rect = name_surface.get_rect(center=(self.x, self.y + STATION_RADIUS + 10))
@@ -149,14 +147,13 @@ class GraphMap:
           
             for neighbor in current.connections:
                 if neighbor not in visited:
-                    #Calculate distance between stations
                     dx = current.x - neighbor.x
                     dy = current.y - neighbor.y
                     distance = math.sqrt(dx*dx + dy*dy)
                   
                     heapq.heappush(heap, (dist + distance, neighbor, path + [current]))
       
-        return None  # No path found
+        return None  #No path found
       
     def draw(self, screen):
         # Draw all stations and connections
