@@ -1,6 +1,4 @@
-# Orb Collector!
 # 1st-Year-CS-Project
-
 # Orb Collector: CS 1201 Project
 
 Orb Collector is a dual-game Python project combining snake-like mechanics with algorithmic pathfinding.
